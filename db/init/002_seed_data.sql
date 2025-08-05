@@ -1,7 +1,21 @@
 -- Sample Companies
-INSERT INTO companies (company_name, reward_threshold, reward) VALUES
-('Bean Bliss Café', 5, 'Free Coffee'),
-('Roast Republic', 7, 'Free Donut');
+INSERT INTO companies (company_name, description, image, reward_threshold, reward)
+VALUES
+(
+  'The Grindhouse',
+  'Trendy café known for industrial vibes and strong espresso.',
+  'https://media.timeout.com/images/106243370/750/422/image.jpg',
+  5,
+  'Free Espresso Shot'
+),
+(
+  'City Roast',
+  'Upscale coffee bar with curated bean selections and downtown views.',
+  'https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A87050e02-2926-49f2-ad50-fa164d682167?source=next-article&fit=scale-down&quality=highest&width=1440&dpr=1',
+  6,
+  'Free Latte'
+);
+
 
 -- Sample Customers (QR code is auto-generated)
 INSERT INTO customers (email, full_name) VALUES

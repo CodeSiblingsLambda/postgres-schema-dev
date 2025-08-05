@@ -7,6 +7,8 @@ CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 CREATE TABLE companies (
     company_id SERIAL PRIMARY KEY,
     company_name VARCHAR(100) NOT NULL,
+    description TEXT,  -- Optional longer description of the company
+    image TEXT,        
     reward_threshold INTEGER NOT NULL CHECK (reward_threshold > 0),
     reward VARCHAR(255) NOT NULL
 );
