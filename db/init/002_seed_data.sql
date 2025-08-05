@@ -16,17 +16,17 @@ VALUES
   'Free Latte'
 );
 
--- Insert Customers
-INSERT INTO customers (email, full_name)
+-- Insert Customers (with password_hash)
+INSERT INTO customers (email, full_name, password_hash)
 VALUES
-  ('alice@example.com', 'Alice Brew'),
-  ('bob@example.com', 'Bob Roast');
+  ('alice@example.com', 'Alice Brew', crypt('alice123', gen_salt('bf'))),
+  ('bob@example.com', 'Bob Roast', crypt('bobsecure', gen_salt('bf')));
 
--- Insert Employees
-INSERT INTO employees (email, full_name, company_id)
+-- Insert Employees (with password_hash)
+INSERT INTO employees (email, full_name, company_id, password_hash)
 VALUES
-  ('barista1@grindhouse.com', 'Emma Bean', 1),
-  ('barista2@cityroast.com', 'John Arabica', 2);
+  ('barista1@grindhouse.com', 'Emma Bean', 1, crypt('beanmaster', gen_salt('bf'))),
+  ('barista2@cityroast.com', 'John Arabica', 2, crypt('latteking', gen_salt('bf')));
 
 -- Insert Customer Reward Progress
 INSERT INTO customer_rewards (customer_email, company_id, current_count)

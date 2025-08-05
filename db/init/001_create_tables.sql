@@ -20,6 +20,7 @@ CREATE TABLE companies (
 CREATE TABLE customers (
     email VARCHAR(100) PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
+    password_hash TEXT,
     qr_code VARCHAR(255) UNIQUE NOT NULL DEFAULT gen_random_uuid()::text
 );
 
@@ -29,6 +30,7 @@ CREATE TABLE customers (
 CREATE TABLE employees (
     email VARCHAR(100) PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
+    password_hash TEXT,
     company_id INTEGER NOT NULL REFERENCES companies(company_id) ON DELETE CASCADE
 );
 
