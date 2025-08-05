@@ -1,0 +1,27 @@
+[tasks.up]
+description = "Start PostgreSQL container"
+run = "docker-compose up -d"
+
+[tasks.down]
+description = "Stop and remove containers"
+run = "docker-compose down"
+
+[tasks.restart]
+description = "Restart the PostgreSQL container"
+run = ["docker-compose down", "docker-compose up -d"]
+
+[tasks.logs]
+description = "Follow PostgreSQL container logs"
+run = "docker-compose logs -f"
+
+[tasks.psql]
+description = "Open PostgreSQL shell inside container"
+run = "docker exec -it fidelity_pg psql -U ${POSTGRES_USER} -d ${POSTGRES_DB}"
+
+[tasks.init]
+description = "Seed the database with test data"
+run = "sh -c 'docker exec -i fidelity_pg psql -U ${POSTGRES_USER} -d ${POSTGRES_DB} < db/seed.sql'"
+
+[tasks.clean]
+description = "Stop containers and remove volumes"
+run = "docker-compose down -v"
