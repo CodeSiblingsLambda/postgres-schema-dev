@@ -24,7 +24,16 @@ CREATE TABLE customers (
 );
 
 -- =========================================
--- 3. Customer Rewards Table (composite PK)
+-- 3. Employees Table (email as PK + company_id code)
+-- =========================================
+CREATE TABLE employees (
+    email VARCHAR(100) PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    company_id INTEGER NOT NULL REFERENCES companies(company_id) ON DELETE CASCADE
+);
+
+-- =========================================
+-- 4. Customer Rewards Table (composite PK)
 -- Tracks each customer's visits per company
 -- =========================================
 CREATE TABLE customer_rewards (

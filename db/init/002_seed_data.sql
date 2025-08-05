@@ -1,4 +1,4 @@
--- Sample Companies
+-- Insert Companies
 INSERT INTO companies (company_name, description, image, reward_threshold, reward)
 VALUES
 (
@@ -16,13 +16,20 @@ VALUES
   'Free Latte'
 );
 
+-- Insert Customers
+INSERT INTO customers (email, full_name)
+VALUES
+  ('alice@example.com', 'Alice Brew'),
+  ('bob@example.com', 'Bob Roast');
 
--- Sample Customers (QR code is auto-generated)
-INSERT INTO customers (email, full_name) VALUES
-('alice@example.com', 'Alice Brew'),
-('bob@example.com', 'Bob Roast');
+-- Insert Employees
+INSERT INTO employees (email, full_name, company_id)
+VALUES
+  ('barista1@grindhouse.com', 'Emma Bean', 1),
+  ('barista2@cityroast.com', 'John Arabica', 2);
 
--- Sample Rewards Tracking
-INSERT INTO customer_rewards (customer_email, company_id, current_count) VALUES
-('alice@example.com', 1, 3),
-('bob@example.com', 2, 6);
+-- Insert Customer Reward Progress
+INSERT INTO customer_rewards (customer_email, company_id, current_count)
+VALUES
+  ('alice@example.com', 1, 3),
+  ('bob@example.com', 2, 5);
